@@ -1,6 +1,6 @@
 Name:       tracker-miners
 Summary:    Tracker miners and metadata extractors
-Version:    3.3.3
+Version:    3.7.0
 Release:    1
 License:    LGPLv2+ and GPLv2+
 URL:        https://gnome.pages.gitlab.gnome.org/tracker/
@@ -13,11 +13,6 @@ Patch2:     0002-Fix-systemd-unit-files.patch
 Patch3:     0003-Prevent-tracker-extract-failing-when-seccomp-loading.patch
 Patch4:     0004-Fix-database-corruption-caused-by-the-miner-being-re.patch
 Patch5:     0005-Allow-D-Bus-activation-only-through-systemd.patch
-Patch6:     0006-backport-Avoid-non-existing-nfo-language-on-libav-ex.patch
-Patch7:     0007-backport-tracker-extract-libav-Check-for-all-tags-al.patch
-Patch8:     0008-backport-tracker-extract-libav-Add-missing-include.patch
-Patch9:     0009-backport-tracker-miner-fs-Allow-building-without-gst.patch
-Patch10:    0010-backport-seccomp-Allow-epoll_create1.patch
 
 BuildRequires:  meson >= 0.50
 BuildRequires:  gettext
@@ -80,10 +75,12 @@ all types of files and other first class objects.
 
 %build
 %meson -Dman=false -Dfunctional_tests=false \
+       -Dbattery_detection=none \
        -Dguarantee_metadata=true -Dminer_rss=false \
        -Dwriteback=false \
        -Draw=disabled -Dcue=disabled -Dxps=disabled -Diso=disabled \
        -Dgeneric_media_extractor=libav \
+       -Dlandlock=disabled \
        -Dnetwork_manager=disabled \
        -Dsystemd_user_services_dir=%{_userunitdir} \
        -Ddefault_index_recursive_dirs=\&DESKTOP,\&DOCUMENTS,\&DOWNLOAD,\&MUSIC,\&PICTURES,\&VIDEOS,\$HOME/android_storage/DCIM,\$HOME/android_storage/Download,\$HOME/android_storage/Pictures,\$HOME/android_storage/Podcasts,\$HOME/android_storage/Music \
@@ -126,16 +123,17 @@ fi
 %defattr(-,root,root,-)
 %license COPYING COPYING.GPL COPYING.LGPL
 %exclude %{_sysconfdir}/xdg/autostart/tracker-miner-fs-3.desktop
+%{_bindir}/tracker3-*
 %{_libdir}/tracker-miners-3.0/
 %{_libexecdir}/tracker-extract-3
 %{_libexecdir}/tracker-miner-fs-3
 %{_libexecdir}/tracker-miner-fs-control-3
-%{_libexecdir}/tracker3
 %{_datadir}/dbus-1/interfaces/org.freedesktop.Tracker3.Miner.Files.Index.xml
 %{_datadir}/dbus-1/interfaces/org.freedesktop.Tracker3.Miner.xml
 %{_datadir}/dbus-1/services/org.freedesktop.Tracker*.service
 %{_datadir}/glib-2.0/schemas/org.freedesktop.Tracker*.xml
 %{_datadir}/tracker3-miners/
+%{_datadir}/tracker3/commands/*
 %{_userunitdir}/tracker-*.service
 %{_userunitdir}/post-user-session.target.wants/tracker-miner-fs-3.service
 %attr(0755, -, -) %{_oneshotdir}/tracker-reset.sh

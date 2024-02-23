@@ -12,10 +12,10 @@ event loop is started and the queued signal handler is processed.
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/src/miners/fs/tracker-main.c b/src/miners/fs/tracker-main.c
-index 27da5e1a1d2f248b4e3b3ac1b42f648b43529e80..21f6166bc2e931714ed798747d3bd32cba23d88d 100644
+index d84fe9237d828c77c1321c79888151f36fdce626..d352b7bd122c8cd8b97b5662943db61469a48a18 100644
 --- a/src/miners/fs/tracker-main.c
 +++ b/src/miners/fs/tracker-main.c
-@@ -1044,6 +1044,8 @@ main (gint argc, gchar *argv[])
+@@ -852,6 +852,8 @@ main (gint argc, gchar *argv[])
  
  	main_loop = g_main_loop_new (NULL, FALSE);
  
@@ -24,7 +24,7 @@ index 27da5e1a1d2f248b4e3b3ac1b42f648b43529e80..21f6166bc2e931714ed798747d3bd32c
  	if (no_daemon) {
  		g_debug ("tracker-miner-fs-3 running in --no-daemon mode.");
  	} else if (domain_ontology_name) {
-@@ -1187,8 +1189,6 @@ main (gint argc, gchar *argv[])
+@@ -987,8 +989,6 @@ main (gint argc, gchar *argv[])
  	if (do_crawling)
  		miner_start (miner_files, config, do_mtime_checking);
  

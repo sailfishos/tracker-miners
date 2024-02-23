@@ -5,17 +5,18 @@ Subject: [PATCH] Fix systemd unit files
 
 Signed-off-by: Matti Kosola <matti.kosola@jolla.com>
 ---
- src/miners/fs/tracker-miner-fs.service.in | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+ src/miners/fs/tracker-miner-fs.service.in | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
 diff --git a/src/miners/fs/tracker-miner-fs.service.in b/src/miners/fs/tracker-miner-fs.service.in
-index 373a7c0eabcaa6e3ff7ae550bd3d382f99a40595..590248f853de069d711d3d7eff45f668e676d011 100644
+index 547c01073cc893a8bfbce2dd3cabf0526c87aeba..590248f853de069d711d3d7eff45f668e676d011 100644
 --- a/src/miners/fs/tracker-miner-fs.service.in
 +++ b/src/miners/fs/tracker-miner-fs.service.in
-@@ -1,16 +1,15 @@
+@@ -1,17 +1,15 @@
  [Unit]
  Description=Tracker file system data miner
  ConditionUser=!root
+-ConditionUser=!gnome-initial-setup
 -After=gnome-session.target
 +After=user-session.target
  

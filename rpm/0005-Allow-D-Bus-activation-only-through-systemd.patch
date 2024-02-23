@@ -11,9 +11,8 @@ Signed-off-by: Simo Piiroinen <simo.piiroinen@jolla.com>
  src/miners/fs/org.freedesktop.Tracker3.Miner.Files.service.in   | 2 +-
  src/miners/rss/org.freedesktop.Tracker3.Miner.RSS.service.in    | 2 +-
  .../org.freedesktop.Tracker3.Miner.Files.Control.service.in     | 2 +-
- .../org.freedesktop.Tracker3.Miner.Extract.service.in           | 2 +-
  .../org.freedesktop.Tracker3.Writeback.service.in               | 2 +-
- 5 files changed, 5 insertions(+), 5 deletions(-)
+ 4 files changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/src/miners/fs/org.freedesktop.Tracker3.Miner.Files.service.in b/src/miners/fs/org.freedesktop.Tracker3.Miner.Files.service.in
 index cc35460dde39e39023c89dd9895a47452a75fbd0..9db5967f4e5d9d300399b8f2d0773239bbff3bdc 100644
@@ -49,18 +48,6 @@ index 261a2f5bbb3d440f8c15ba54e521a4f5f0988c36..fde240041bbf6a0602afcfdf33a6d7ab
 -Exec=@libexecdir@/tracker-miner-fs-control-3
 +Exec=/bin/false
  @SYSTEMD_SERVICE@
-diff --git a/src/tracker-extract/org.freedesktop.Tracker3.Miner.Extract.service.in b/src/tracker-extract/org.freedesktop.Tracker3.Miner.Extract.service.in
-index cd396057a973da2b55e9757d2a38ba3eadb47e11..d56f103cc3542b46450c7bec6e5ce0939a64815e 100644
---- a/src/tracker-extract/org.freedesktop.Tracker3.Miner.Extract.service.in
-+++ b/src/tracker-extract/org.freedesktop.Tracker3.Miner.Extract.service.in
-@@ -1,6 +1,6 @@
- [D-BUS Service]
- Name=@DOMAIN_PREFIX@.Tracker3.Miner.Extract
--Exec=@libexecdir@/tracker-extract-3 @DOMAIN_ONTOLOGY_OPTIONS@
-+Exec=/bin/false
- @SYSTEMD_SERVICE@
- 
- # Miner details needed for tracker-control
 diff --git a/src/tracker-writeback/org.freedesktop.Tracker3.Writeback.service.in b/src/tracker-writeback/org.freedesktop.Tracker3.Writeback.service.in
 index 484fa2f8127e9eabdd39b45981356331361d992d..8bc3425c4ea13cad969470188b7a1bc8035ded50 100644
 --- a/src/tracker-writeback/org.freedesktop.Tracker3.Writeback.service.in

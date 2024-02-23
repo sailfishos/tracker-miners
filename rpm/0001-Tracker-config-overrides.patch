@@ -16,7 +16,7 @@ Harmonize ignore folders
  1 file changed, 8 insertions(+), 8 deletions(-)
 
 diff --git a/data/org.freedesktop.Tracker.Miner.Files.gschema.xml b/data/org.freedesktop.Tracker.Miner.Files.gschema.xml
-index dd4a106a6c03a3714e5f1293460624129ff1aad7..c53c245a571c7b54e9d342a4f69694c79857b6ba 100644
+index 0441730023aa25ee5a28eff3ca5d23feb70749e8..f5666b0c8682ba74c7010fe0d859532e0e0c2dd5 100644
 --- a/data/org.freedesktop.Tracker.Miner.Files.gschema.xml
 +++ b/data/org.freedesktop.Tracker.Miner.Files.gschema.xml
 @@ -23,14 +23,14 @@ Boston, MA  02110-1301, USA.
@@ -63,7 +63,7 @@ index dd4a106a6c03a3714e5f1293460624129ff1aad7..c53c245a571c7b54e9d342a4f69694c7
      </key>
  
      <key name="index-optical-discs" type="b">
-@@ -141,13 +141,13 @@ Boston, MA  02110-1301, USA.
+@@ -132,13 +132,13 @@ Boston, MA  02110-1301, USA.
      <key name="ignored-directories" type="as">
        <summary>Ignored directories</summary>
        <description>List of directories to avoid</description>
